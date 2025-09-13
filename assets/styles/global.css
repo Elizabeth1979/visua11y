@@ -1,0 +1,220 @@
+/* assets/styles/global.css - Global styles, typography, and accessibility */
+
+/* CSS Custom Properties - Essential Design System */
+:root {
+  /* Colors */
+  --primary-blue: #007acc;
+  --primary-blue-dark: #005a99;
+  --success-green: #28a745;
+  --success-green-dark: #1e7e34;
+  --danger-red: #dc3545;
+  --danger-red-dark: #c82333;
+
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+
+  /* Border Colors */
+  --border-light: #dee2e6;
+  --border-muted: #e9ecef;
+
+  /* Typography - Responsive Units */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-base: 0.875rem; /* 14px */
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-large: 1rem; /* 16px */
+  --line-height-base: 1.5;
+  --line-height-tight: 1.4;
+
+  /* Spacing - Text-Relative Units (scale with font size) */
+  --spacing-xs: 0.25em; /* ~3.5px at 14px font */
+  --spacing-sm: 0.5em; /* ~7px at 14px font */
+  --spacing-md: 0.75em; /* ~10.5px at 14px font */
+  --spacing-lg: 1em; /* ~14px at 14px font */
+  --spacing-xl: 1.5em; /* ~21px at 14px font */
+
+  /* Border Radius - Keep rem for consistency */
+  --border-radius: 0.375rem; /* 6px */
+  --border-radius-small: 0.25rem; /* 4px */
+
+  /* Focus - Keyboard Navigation Only */
+  --focus-color: var(--primary-blue);
+  --focus-outline: 2px solid var(--focus-color);
+  --focus-offset: 2px;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 1.5rem; /* 24px */
+}
+h2 {
+  font-size: 1.25rem; /* 20px */
+}
+h3 {
+  font-size: 1.125rem; /* 18px */
+}
+h4 {
+  font-size: var(--font-size-large);
+}
+
+p {
+  margin-block: 0 var(--spacing-md);
+  margin-inline: 0;
+  line-height: var(--line-height-base);
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+/* Links */
+a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--primary-blue-dark);
+}
+
+/* Focus Indicators - Keyboard Navigation Only */
+/* Modern browsers: Only show focus on keyboard navigation */
+*:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* Fallback for older browsers that don't support :focus-visible */
+/* This ensures accessibility compliance while hiding mouse focus */
+@supports not selector(:focus-visible) {
+  *:focus {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+  }
+
+  /* Hide focus for mouse users in older browsers */
+  *:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+/* Remove all default focus styles since we're handling them above */
+*:focus {
+  outline: none;
+}
+
+/* Reduced Motion Support - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast Mode Support - Accessibility */
+@media (prefers-contrast: high) {
+  :root {
+    --border-light: #000000;
+    --border-muted: #333333;
+    --text-muted: #000000;
+    --primary-blue: #0000ff;
+    --primary-blue-dark: #000080;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #e0e0e0;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --bg-white: #2b2b2b;
+    --bg-light: #333333;
+    --border-light: #555555;
+    --border-muted: #666666;
+    --primary-blue: #66b3ff;
+    --primary-blue-dark: #4da6ff;
+  }
+}
+
+/* Screen Reader Only Text - Accessibility Utility */
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to Content Link - Accessibility */
+.skip-link {
+  position: absolute;
+  inset-block-start: -2.5rem;
+  inset-inline-start: var(--spacing-sm);
+  background: var(--bg-white);
+  color: var(--text-primary);
+  padding: var(--spacing-sm);
+  text-decoration: none;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--border-light);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  inset-block-start: var(--spacing-sm);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+.text-start {
+  text-align: start;
+}
+.text-end {
+  text-align: end;
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.text-small {
+  font-size: var(--font-size-small);
+}
+.font-weight-bold {
+  font-weight: 600;
+}

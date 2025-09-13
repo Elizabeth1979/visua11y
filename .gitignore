@@ -1,0 +1,24 @@
+# Security: Protect API keys and sensitive configuration
+# (Keep any files that might contain API keys out of git)
+# Old developer config file with API keys — do not commit
+background/config.js
+# JSON config file that previously contained keys — do not commit
+background/config.json
+
+# System files
+# macOS Finder metadata — automatically created, not source
+.DS_Store
+# Local VS Code settings — personal to each developer
+.vscode/
+# Log files from debugging — not source code
+*.log
+
+# Extension packaging
+# Packed Chrome extension file (created by "Pack extension")
+*.crx
+# Private key used to sign the extension — highly sensitive, never commit
+*.pem
+# Release zip uploaded to the Chrome Web Store — build artifact
+*.zip
+# Build output directory (if a bundler is used) — generated files
+dist/

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visua11y</title>
+    <link rel="stylesheet" href="../assets/styles/global.css" />
+    <link rel="stylesheet" href="../assets/styles/popup.css" />
+  </head>
+  <body>
+    <h1>Visua11y</h1>
+    <p>Your AI-powered accessibility assistant.</p>
+
+    <div id="ai-status"></div>
+
+    <div id="instructions-section">
+      <div class="info-box">
+        <strong>✅ AI Summaries Available!</strong>
+        <p>To get easy to understand summaries:</p>
+        <ol>
+          <li>Select any text on a webpage</li>
+          <li>Right-click and choose "Summarize with Visua11y"</li>
+        </ol>
+      </div>
+    </div>
+
+    <div id="tldr-section">
+      <div class="info-box">
+        <strong>📋 TLDR - What's This Page About?</strong>
+        <p>Get a quick summary of what the current page is about:</p>
+        <div class="button-group">
+          <button id="tldr-btn" class="btn btn-primary">📋 Get TLDR</button>
+        </div>
+        <div id="tldr-status" class="status-message"></div>
+        <div id="tldr-result" class="analysis-result"></div>
+      </div>
+    </div>
+
+    <div id="screenshot-section">
+      <div class="info-box">
+        <strong>📸 Page Layout Analysis</strong>
+        <p>Get an AI analysis of the current page's layout and content structure:</p>
+        <div class="button-group">
+          <button id="analyze-page-btn" class="btn btn-primary">📸 Analyze Current Page</button>
+        </div>
+        <div id="analysis-status" class="status-message"></div>
+        <div id="analysis-result" class="analysis-result"></div>
+        <div id="screenshot-display" class="screenshot-container"></div>
+      </div>
+    </div>
+
+    <div id="api-config-section">
+      <div class="info-box api-config">
+        <details>
+          <summary><strong>⚙️ Configure API Keys</strong></summary>
+
+          <div class="api-form">
+            <div class="api-section">
+              <h4>OpenAI API Configuration</h4>
+              <p>Required for screenshot analysis and advanced features.</p>
+              <input
+                type="password"
+                id="openai-api-key-input"
+                placeholder="Enter OpenAI API key (sk-...)"
+              />
+              <div class="button-group">
+                <button id="save-openai-key" class="btn btn-success">Save Key</button>
+                <button id="clear-openai-key" class="btn btn-danger">Clear Key</button>
+                <a href="https://platform.openai.com/api-keys" target="_blank" class="get-key-link">
+                  Get API Key ↗
+                </a>
+              </div>
+              <div id="openai-api-key-status"></div>
+            </div>
+
+            <div class="api-section">
+              <h4>Gemini API Configuration</h4>
+              <p>Optional alternative provider (Google Gemini models).</p>
+              <input
+                type="password"
+                id="gemini-api-key-input"
+                placeholder="Enter Gemini API key (AIza...)"
+              />
+              <div class="button-group">
+                <button id="save-gemini-key" class="btn btn-success">Save Key</button>
+                <button id="clear-gemini-key" class="btn btn-danger">Clear Key</button>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="get-key-link">
+                  Get API Key ↗
+                </a>
+              </div>
+              <div id="gemini-api-key-status"></div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+/* assets/styles/summary-box.css */
+
+/* Summary Box Component */
+#visua11y-summary-box {
+  position: absolute;
+  z-index: var(--z-index-modal, 10000);
+  background-color: var(--bg-white, #ffffff);
+  border: 1px solid var(--border-light, #ddd);
+  padding: var(--spacing-xl, 1.5rem);
+  border-radius: var(--border-radius, 0.5rem);
+  box-shadow: var(--shadow-medium, 0 0.5rem 2rem rgba(0, 0, 0, 0.1));
+  max-inline-size: 28.125rem; /* 450px */
+  font-family: var(
+    --font-family,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--font-size-base, 0.875rem);
+  line-height: var(--line-height-base, 1.6);
+  color: var(--text-primary, #333);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 0.75rem);
+}
+
+/* Summary Content Container */
+.summary-content {
+  flex: 1;
+  overflow-wrap: break-word;
+}
+
+/* Text formatting inherits from global styles */
+.summary-content strong {
+  color: var(--primary-blue, #007bff);
+}
+
+.summary-content em {
+  color: var(--text-muted, #666);
+}
+
+/* Close Button - Uses global button styles */
+#visua11y-summary-box #visua11y-close-btn,
+#visua11y-summary-box .close-button {
+  align-self: flex-end;
+  margin-block-start: var(--spacing-xs, 0.25rem);
+  padding-block: var(--spacing-sm, 0.5rem);
+  padding-inline: var(--spacing-lg, 1rem);
+  background-color: var(--primary-blue, #0056b3);
+  color: var(--bg-white, #ffffff);
+  border: 1px solid var(--primary-blue, #0056b3);
+  border-radius: var(--border-radius-small, 0.25rem);
+  font-family: var(
+    --font-family,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--font-size-base, 0.875rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#visua11y-summary-box #visua11y-close-btn:hover,
+#visua11y-summary-box .close-button:hover {
+  background-color: var(--primary-blue-dark, #004085);
+}
+
+/* Component-specific overrides for high contrast mode */
+@media (prefers-contrast: high) {
+  #visua11y-summary-box {
+    border-width: 2px;
+  }
+}
+
+/* Responsive Design */
+@media (max-inline-size: 30rem) {
+  /* 480px */
+  #visua11y-summary-box {
+    max-inline-size: calc(100vw - 1.25rem);
+    margin: 0.625rem;
+    padding: 0.9375rem;
+  }
+}
+
+/* Enhanced zoom and font scaling support */
+@media (min-resolution: 1.5dppx) {
+  #visua11y-summary-box {
+    font-size: calc(var(--font-size-base, 0.875rem) * 1.1);
+  }
+}
